@@ -18,12 +18,14 @@ wp core config --dbname=$db_name --dbuser=$db_user --dbpass=$db_pwd --dbhost=mar
 
 # wp core is-installed
 
-wp core install --url=$domain_name --title="inception" --admin_user=$wp_admin_name --admin_password=$wp_admin_pwd --admin_email=$wp_user_email --allow-root
+wp core install --url=$domain_name --title="inception" --admin_user=$wp_admin_name --admin_password=$wp_admin_pwd --admin_email=$wp_admin_email --allow-root
 
-wp user create $wp_user_name $wp_user_email --role=$wp_user_role --allow-root
+# wp user create $wp_user_name $wp_user_email --role=$wp_user_role --allow-root
+wp user create $wp_user_name $wp_user_email --role=$wp_user_role --user_pass=$wp_user_pwd --allow-root
 
 
-RUN chmod -R 777 /var/www
+
+chmod -R 777 /var/www
 
 
 # Most web servers like Apache or Nginx (with PHP-FPM) run as the www-data user.

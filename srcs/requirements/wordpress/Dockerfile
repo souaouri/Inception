@@ -8,9 +8,6 @@ COPY ./tools/script.sh .
 
 RUN chmod +x script.sh
 
-RUN mkdir -p /var/www/wordpress
-
-
-RUN mkdir -p /run/php
+RUN mkdir -p /var/www/wordpress /run/php
 
 ENTRYPOINT ["./script.sh"]
